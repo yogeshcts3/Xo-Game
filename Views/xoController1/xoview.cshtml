@@ -1,0 +1,240 @@
+﻿@* <style> *@
+@* 	.button{ *@
+@* 	border:none; *@
+@* 	color:white; *@
+@* 	/* padding:15px 32px; */ *@
+@* 	cursor:pointer; *@
+@* 	border-radius:50px/25px; *@
+@* 	margin:0 auto; *@
+@* 	} *@
+@* 	body { *@
+@*             display: flex; *@
+@*             justify-content: flex-start; /* Aligns items to the start (left) */ *@
+@*             align-items: center; /* Centers items vertically */ *@
+@*             height: 100vh; /* Full viewport height */ *@
+@*             margin: 0; /* Remove default margin */ *@
+@*             padding-left: 30px; /* Adds padding to the left side */ *@
+@*         } *@
+
+@* 	img { *@
+@* 		display: block; *@
+@* 		margin: 0 auto; *@
+@* 		width: 500px; *@
+@* 		height: 600px; *@
+@* 	} *@
+@* 	.button1{ *@
+@* 		top:100px; *@
+@* 		left:100px; *@
+@* 	} *@
+
+@* 	.button2 { *@
+@* 		top: 200px; *@
+@* 		left: 200px; *@
+@* 	} *@
+@* </style> *@
+@* <center> *@
+@* 	<img src="/image/grid.png" alt="Grid"/> *@
+@* </center> *@
+@* <button type="button" class="button button1">1</button> *@
+@* <button type="button" class="button button2">2</button> *@
+@* <button type="button" class="button button3">3</button> *@
+@* <button type="button" class="button button4">4</button> *@
+@* <button type="button" class="button button5">5</button> *@
+@* <button type="button" class="button button6">6</button> *@
+@* <button type="button" class="button button7">7</button> *@
+@* <button type="button" class="button button8">8</button> *@
+@* <button type="button" class="button button9">9</button> *@
+@model xogame.Models.Xo;
+<style>
+    body {
+    margin: 0;
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    }
+
+    .container {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    }
+
+    .container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    pointer-events:none;
+    }
+
+    .button {
+    position: absolute;
+    border: none;
+    color: white;
+    background-color:white;
+    cursor: pointer;
+    border-radius: 50px/25px;
+    padding: 10px 20px;
+    z-index:10;
+    }
+
+    /* Example button positions */
+    .button1 {
+    top: 150px;
+    left: 150px;
+    }
+
+    .button2 {
+    top: 150px;
+    left: 225px;
+    }
+
+    .button3 {
+    top:150px;
+    left:300px
+    }
+
+    .button4 {
+    top: 250px;
+    left: 150px;
+    }
+
+    .button5 {
+    top: 250px;
+    left: 225px;
+    }
+
+    .button6 {
+    top: 250px;
+    left: 300px
+    }
+
+    .button7 {
+    top: 350px;
+    left: 150px;
+    }
+
+    .button8 {
+    top: 350px;
+    left: 225px;
+    }
+
+    .button9 {
+    top: 350px;
+    left: 300px
+    }
+    /* Add more as needed */
+</style>
+<div class="container">
+    <img src="/image/grid.png" alt="Grid" />
+    @if (Xo.xomatrix[0, 0] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="1" class="button button1">1</a>
+    }
+    else if (Xo.xomatrix[0, 0] == 1)
+    {
+        <img src="~/image/x.png" class="button1" style="position:absolute; width:40px;height:60px"/>
+    }
+    else if (Xo.xomatrix[0, 0] == 2)
+    {
+        <img src="~/image/o.png" class="button1" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[0, 1] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="2" class="button button2">2</a>
+    }
+    else if (Xo.xomatrix[0, 1] == 1)
+    {
+        <img src="~/image/x.png" class="button2" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[0, 1] == 2)
+    {
+        <img src="~/image/o.png" class="button2" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[0, 2] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="3" class="button button3">3</a>
+    }
+    else if (Xo.xomatrix[0, 2] == 1)
+    {
+        <img src="~/image/x.png" class="button3" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[0, 2] == 2)
+    {
+        <img src="~/image/o.png" class="button3" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[1, 0] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="4" class="button button4">4</a>
+    }
+    else if (Xo.xomatrix[1, 0] == 1)
+    {
+        <img src="~/image/x.png" class="button4" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[1, 0] == 2)
+    {
+        <img src="~/image/o.png" class="button4" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[1, 1] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="5" class="button button5">5</a>
+    }
+    else if (Xo.xomatrix[1, 1] == 1)
+    {
+        <img src="~/image/x.png" class="button5" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[1, 1] == 2)
+    {
+        <img src="~/image/o.png" class="button5" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[1, 2] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="6" class="button button6">6</a>
+    }
+    else if (Xo.xomatrix[1, 2] == 1)
+    {
+        <img src="~/image/x.png" class="button6" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[1, 2] == 2)
+    {
+        <img src="~/image/o.png" class="button6" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[2, 0] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="7" class="button button7">7</a>
+    }
+    else if (Xo.xomatrix[2, 0] == 1)
+    {
+        <img src="~/image/x.png" class="button7" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[2, 0] == 2)
+    {
+        <img src="~/image/o.png" class="button7" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[2, 1] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="8" class="button button8">8</a>
+    }
+    else if (Xo.xomatrix[2, 1] == 1)
+    {
+        <img src="~/image/x.png" class="button8" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[2, 1] == 2)
+    {
+        <img src="~/image/o.png" class="button8" style="position:absolute; width:40px;height:60px" />
+    }
+    @if (Xo.xomatrix[2, 2] == 0)
+    {
+        <a asp-controller="xoController1" asp-action="actiondone" asp-route-id="9" class="button button9">9</a>
+    }
+    else if (Xo.xomatrix[2, 2] == 1)
+    {
+        <img src="~/image/x.png" class="button9" style="position:absolute; width:40px;height:60px" />
+    }
+    else if (Xo.xomatrix[2, 2] == 2)
+    {
+        <img src="~/image/o.png" class="button9" style="position:absolute; width:40px;height:60px" />
+    }
+    </div>
